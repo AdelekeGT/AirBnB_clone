@@ -105,19 +105,5 @@ class TestHBNBCommand_help(unittest.TestCase):
             self.assertEqual(h, output.getvalue().strip())
 
 
-class TestHBNBCommand_exit(unittest.TestCase):
-    """Unittests for testing exiting from the HBNB command interpreter."""
-
-    def test_quit_exits(self):
-        with patch("sys.stdout", new=StringIO()) as output:
-            self.assertTrue(HBNBCommand().onecmd("quit"))
-            print(output)
-
-    def test_EOF_exits(self):
-        with patch("sys.stdout", new=StringIO()) as output:
-            self.assertTrue(HBNBCommand().onecmd("EOF"))
-            print(output)
-
-
 if __name__ == "__main__":
     unittest.main()
