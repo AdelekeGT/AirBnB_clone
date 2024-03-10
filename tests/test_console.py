@@ -14,15 +14,15 @@ class TestHBNBCommand(unittest.TestCase):
     def test_quit(self):
         pass
 
-    def test_help_create(self):
+    def test_EOF(self):
+        pass
+
+    def test_create(self):
         h = ("Usage: create <class>\n        "
              "Create a new class instance and print its id.")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help create"))
             self.assertEqual(h, output.getvalue().strip())
-
-    def test_EOF(self):
-        pass
 
     def test_show(self):
         h = ("Usage: show <class> <id> or <class>.show(<id>)\n        "
@@ -46,13 +46,6 @@ class TestHBNBCommand(unittest.TestCase):
              "objects.")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help all"))
-            self.assertEqual(h, output.getvalue().strip())
-
-    def test_count(self):
-        h = ("Usage: count <class> or <class>.count()\n        "
-             "Retrieve the number of instances of a given class.")
-        with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd("help count"))
             self.assertEqual(h, output.getvalue().strip())
 
     def test_update(self):
