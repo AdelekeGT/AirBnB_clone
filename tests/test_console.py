@@ -2,10 +2,10 @@
 """Module contains tests for console.py
 """
 
-import unittest
 from console import HBNBCommand
 from io import StringIO
 from unittest.mock import patch
+import unittest
 
 
 class TestHBNBCommand(unittest.TestCase):
@@ -18,45 +18,52 @@ class TestHBNBCommand(unittest.TestCase):
         pass
 
     def test_create(self):
-        h = ("Usage: create <class>\n        "
+        r = ("Usage: create <class>\n        "
              "Create a new class instance and print its id.")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help create"))
-            self.assertEqual(h, output.getvalue().strip())
+            self.assertEqual(r, output.getvalue().strip())
 
     def test_show(self):
-        h = ("Usage: show <class> <id> or <class>.show(<id>)\n        "
+        r = ("Usage: show <class> <id> or <class>.show(<id>)\n        "
              "Display the string representation of a class instance of"
              " a given id.")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help show"))
-            self.assertEqual(h, output.getvalue().strip())
+            self.assertEqual(r, output.getvalue().strip())
 
     def test_destroy(self):
-        h = ("Usage: destroy <class> <id> or <class>.destroy(<id>)\n        "
+        r = ("Usage: destroy <class> <id> or <class>.destroy(<id>)\n        "
              "Delete a class instance of a given id.")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help destroy"))
-            self.assertEqual(h, output.getvalue().strip())
+            self.assertEqual(r, output.getvalue().strip())
 
     def test_all(self):
-        h = ("Usage: all or all <class> or <class>.all()\n        "
+        r = ("Usage: all or all <class> or <class>.all()\n        "
              "Display string representations of all instances of a given class"
              ".\n        If no class is specified, displays all instantiated "
              "objects.")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help all"))
-            self.assertEqual(h, output.getvalue().strip())
+            self.assertEqual(r, output.getvalue().strip())
+
+    def test_count(self):
+        r = ("Usage: count <class> or <class>.count()\n        "
+             "Retrieve the number of instances of a given class.")
+        with patch("sys.stdout", new=StringIO()) as output:
+            self.assertFalse(HBNBCommand().onecmd("help count"))
+            self.assertEqual(r, output.getvalue().strip())
 
     def test_update(self):
-        h = ("Usage: update <class> <id> <attribute_name> <attribute_value> or"
+        r = ("Usage: update <class> <id> <attribute_name> <attribute_value> or"
              "\n       <class>.update(<id>, <attribute_name>, <attribute_value"
              ">) or\n       <class>.update(<id>, <dictionary>)\n        "
              "Update a class instance of a given id by adding or updating\n   "
              "     a given attribute key/value pair or dictionary.")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help update"))
-            self.assertEqual(h, output.getvalue().strip())
+            self.assertEqual(r, output.getvalue().strip())
 
 
 if __name__ == "__main__":
