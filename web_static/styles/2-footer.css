@@ -1,0 +1,11 @@
+/* Styling for the footer */
+body footer {
+  background-color: green;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+}
